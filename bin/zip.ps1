@@ -5,5 +5,5 @@ param(
 
 #Load the assembly
 [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
-#Unzip the file
-[System.IO.Compression.ZipFile]::CreateFromDirectory($directory, $output)
+#zip the file
+[System.IO.Compression.ZipFile]::CreateFromDirectory($directory, $output, [System.IO.Compression.CompressionLevel]::Fastest, "true")
