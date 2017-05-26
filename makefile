@@ -16,14 +16,13 @@ ifeq "$(OS)" "Windows_NT"
   ZIP_COMMAND = powershell -File $(CURDIR)/bin/zip.ps1 -directory $< -output $@
 else
   $(info ### Building for a proper OS ###)
-  $(error Build not implemented yet for this platform)
-  ## TODO
-  #MOD_ZIP := $(MOD_BUILD_DIR).zip
-  #FACTORIO_INSTALL_DIR := $(APPDATA)/Factorio/mods
-  #DEPLOYED_ZIP := $(FACTORIO_INSTALL_DIR)/$(MOD_FULL_NAME).zip
-  #ZIP_COMMAND = powershell -File $(CURDIR)/bin/zip.ps1 -directory $< -output $@
+  MOD_ZIP := $(MOD_BUILD_DIR).zip
+  MOD_ZIP_REALPATH := $(shell readlink -m $(MOD_ZIP))
+  FACTORIO_INSTALL_DIR := ~/.factorio/mods
+  DEPLOYED_ZIP := $(FACTORIO_INSTALL_DIR)/$(MOD_FULL_NAME).zip
+  ZIP_COMMAND := cd $(dir $(MOD_BUILD_DIR)) && zip -r $(MOD_ZIP_REALPATH) $(notdir $(MOD_BUILD_DIR))
 endif
- 
+
 
 all: $(MOD_ZIP)
 
