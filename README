@@ -1,0 +1,11 @@
+## BUILD
+make all
+	Creates the zipped mod in _build/
+
+make deploy
+	Installs the mod into your factorio installation
+
+
+## RUNTIME USAGE
+In the lua command prompt, enter `/git`. It will print 'Hello World'. That's
+all it does for now.
