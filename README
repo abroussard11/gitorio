@@ -7,5 +7,13 @@ make deploy
 
 
 ## RUNTIME USAGE
-In the lua command prompt, enter `/git`. It will print 'Hello World'. That's
+In the lua command prompt, enter `/git`. It will print some information. That's
 all it does for now.
+
+## DEPENDENCIES
+Factorio-Stdlib (bundled in with gitorio)
+   https://github.com/Afforess/Factorio-Stdlib
+
+## DEV REFERENCES
+http://lua-api.factorio.com/latest/index.html
+https://wiki.factorio.com/User:Adil/Modding_tutorial
